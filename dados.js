@@ -346,7 +346,7 @@ const ATIVIDADES_POR_SEMESTRE = {
 const CLAUSULAS = [
   {
     numero: "I",
-    texto: "As Condições Gerais do Termo de Convênio formalizam a realização de estágios de estudantes do Curso de Licenciatura em Pedagogia do Instituto Federal de Educação, Ciência e Tecnologia de São Paulo. O Estágio Supervisionado de Ensino faz parte do Projeto Pedagógico do Curso da Instituição de Ensino qualificada e que indicará Professor Orientador responsável pelo acompanhamento e avaliação das atividades do estagiário. De acordo com o artigo 1º da Lei 11.788/2008, além de integrar o itinerário formativo do estudante, o estágio visa o aprendizado de competências próprias da atividade profissional, contextualização curricular e desenvolvimento para a vida cidadã e para o trabalho."
+    texto: "As Condições Gerais do Termo de Convênio formalizam a realização de estágios de estudantes do Curso de Licenciatura em Pedagogia do Instituto Federal de Educação, Ciência e Tecnologia de São Paulo. O Estágio Supervisionado de Ensino faz parte do Projeto Pedagógico do Curso da Instituição de Ensino qualificada e que indicará Professor(a) Orientador(a) responsável pelo acompanhamento e avaliação das atividades do(a) estagiário(a). De acordo com o artigo 1º da Lei 11.788/2008, além de integrar o itinerário formativo do(a) estudante, o estágio visa o aprendizado de competências próprias da atividade profissional, contextualização curricular e desenvolvimento para a vida cidadã e para o trabalho."
   },
   {
     numero: "II",
@@ -358,11 +358,11 @@ const CLAUSULAS = [
   },
   {
     numero: "IV",
-    texto: "Consideram-se estágio curricular as atividades de Aprendizagem Profissional, Cultural e Social, proporcionadas ao estudante pela participação em situações reais de trabalho dentro de sua área de habilitação, obrigando-o a cumprir fielmente a programação de estágio. As atividades principais a serem desenvolvidas pelo estudante/estagiário, compatíveis com o contexto básico da profissão a qual o curso se refere, estão definidas no Projeto Pedagógico do Curso e no Manual de Estágio do Curso de Licenciatura em Pedagogia."
+    texto: "Consideram-se estágio curricular as atividades de Aprendizagem Profissional, Cultural e Social, proporcionadas ao(à) estudante pela participação em situações reais de trabalho dentro de sua área de habilitação, obrigando-o(a) a cumprir fielmente a programação de estágio. As atividades principais a serem desenvolvidas pelo(a) estudante/estagiário(a), compatíveis com o contexto básico da profissão a qual o curso se refere, estão definidas no Projeto Pedagógico do Curso de Licenciatura em Pedagogia e no Manual de Estágio do Curso de Licenciatura em Pedagogia."
   },
   {
     numero: "V",
-    texto: "O acompanhamento do estágio será realizado pelo(a) Professor(a) Supervisor(a) que atua na Unidade Concedente de estágio, e pelo Professor Orientador do Estágio no IFSP."
+    texto: "O acompanhamento do estágio será realizado pelo(a) Professor(a) Supervisor(a) que atua na Unidade Concedente de estágio, e pelo(a) Professor(a) Orientador(a) do Estágio no IFSP."
   },
   {
     numero: "VI",
