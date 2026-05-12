@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Termo de Estágio - Pedagogia IFSP</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1>Gerador de Termo de Compromisso de Estágio</h1>
+    <p>Licenciatura em Pedagogia | IFSP - Campus São Roque</p>
+  </header>
+
+  <div class="container">
+
+    <!-- ================== PAINEL ESQUERDO: Formulário ================== -->
+    <section class="painel formulario">
+      <h2>Dados do Estágio</h2>
+
+      <!-- Barra de progresso de preenchimento -->
+      <div class="progresso-bloco">
+        <p class="barra-progresso-texto" id="barra-progresso-texto">0 de 0 campos obrigatórios preenchidos (0%)</p>
+        <div class="barra-progresso-container" role="progressbar" aria-label="Progresso de preenchimento">
+          <div class="barra-progresso-fill" id="barra-progresso-fill"></div>
+        </div>
+      </div>
+
+      <h3>1. Estudante</h3>
+
+      <p class="observacao">Preencha seus dados pessoais. Os campos marcados com <span class="obrigatorio">*</span> são obrigatórios. Nenhuma informação fica armazenada após o uso.</p>
+
+      <div class="campo">
+        <label for="inp-nomeAluno">Nome completo:<span class="obrigatorio">*</span></label>
+        <input type="text" id="inp-nomeAluno" placeholder="Digite seu nome completo">
+      </div>
+
+      <div class="linha-3">
+        <div class="campo">
+          <label for="inp-rg">RG:<span class="obrigatorio">*</span></label>
+          <input type="text" id="inp-rg" placeholder="00.000.000-0">
+        </div>
+        <div class="campo">
+          <label for="inp-cpf">CPF:<span class="obrigatorio">*</span></label>
+          <input type="text" id="inp-cpf" placeholder="000.000.000-00" maxlength="14" inputmode="numeric">
+        </div>
+        <div class="campo">
+          <label for="inp-prontuario">Prontuário:<span class="obrigatorio">*</span></label>
+          <input type="text" id="inp-prontuario" placeholder="Ex.: RQ0000000" maxlength="9">
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="inp-dataNasc">Data de nascimento:<span class="obrigatorio">*</span></label>
+          <input type="text" id="inp-dataNasc" placeholder="DD/MM/AAAA" maxlength="10" inputmode="numeric">
+        </div>
+        <div class="campo">
+          <label for="inp-pcd">Pessoa com deficiência?</label>
+          <select id="inp-pcd">
+            <option value="Não" selected>Não</option>
+            <option value="Sim">Sim</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="inp-enderecoAluno">Endereço (rua, número, complemento):<span class="obrigatorio">*</span></label>
+        <input type="text" id="inp-enderecoAluno" placeholder="Ex.: Rua das Flores, nº 123, Apto 5">
+      </div>
+
+      <div class="linha-3">
+        <div class="campo">
+          <label for="inp-cepAluno">CEP:<span class="obrigatorio">*</span></label>
+          <input type="text" id="inp-cepAluno" placeholder="00000-000" maxlength="9" inputmode="numeric">
+        </div>
+        <div class="campo">
+          <label for="inp-bairroAluno">Bairro:<span class="obrigatorio">*</span></label>
+          <input type="text" id="inp-bairroAluno">
+        </div>
+        <div class="campo">
+          <label for="inp-cidadeAluno">Cidade:<span class="obrigatorio">*</span></label>
+          <input type="text" id="inp-cidadeAluno">
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="inp-estadoAluno">Estado:</label>
+          <input type="text" id="inp-estadoAluno" value="SP" maxlength="2">
+        </div>
+        <div class="campo">
+          <label for="inp-periodoCurso">Período do curso:<span class="obrigatorio">*</span></label>
+          <select id="inp-periodoCurso">
+            <option value="Noturno" selected>Noturno</option>
+            <option value="Matutino">Matutino</option>
+            <option value="Vespertino">Vespertino</option>
+            <option value="Integral">Integral</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="inp-telefoneAluno">Telefone:</label>
+          <input type="text" id="inp-telefoneAluno" placeholder="(00) 0000-0000" maxlength="14" inputmode="tel">
+        </div>
+        <div class="campo">
+          <label for="inp-celularAluno">Celular:<span class="obrigatorio">*</span></label>
+          <input type="text" id="inp-celularAluno" placeholder="(00) 00000-0000" maxlength="15" inputmode="tel">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="inp-emailPessoal">E-mail (digite seu e-mail pessoal ou acadêmico):<span class="obrigatorio">*</span></label>
+        <input type="email" id="inp-emailPessoal" placeholder="seuemail@dominio.com">
+      </div>
+
+      <h3>2. Escola (Unidade Concedente)</h3>
+
+      <div class="campo">
+        <label for="sel-escola">Selecione a escola:<span class="obrigatorio">*</span></label>
+        <select id="sel-escola"></select>
+      </div>
+
+      <div class="campo">
+        <label for="sel-supervisor">Supervisor(a) na escola:<span class="obrigatorio">*</span></label>
+        <select id="sel-supervisor">
+          <option value="">— selecione o(a) supervisor(a) —</option>
+        </select>
+      </div>
+
+      <!-- Bloco visível quando o aluno opta por digitar o(a) supervisor(a) manualmente -->
+      <div id="bloco-supervisor-livre" style="display:none; border: 1px dashed #ccc; padding: 12px; border-radius: 4px; margin-bottom: 12px;">
+        <p class="observacao">Informe os dados do(a) supervisor(a) que acompanhará seu estágio:</p>
+        <div class="campo">
+          <label for="inp-sup-nome">Nome completo do(a) supervisor(a):<span class="obrigatorio">*</span></label>
+          <input type="text" id="inp-sup-nome" placeholder="Ex.: MARIA SILVA">
+        </div>
+        <div class="campo">
+          <label for="inp-sup-email">E-mail do(a) supervisor(a):<span class="obrigatorio">*</span></label>
+          <input type="email" id="inp-sup-email" placeholder="supervisor@dominio.com">
+        </div>
+      </div>
+
+      <!-- Campos livres para escola "Outra" -->
+      <div id="bloco-escola-livre" style="display:none; border: 1px dashed #ccc; padding: 12px; border-radius: 4px; margin-bottom: 12px;">
+        <div class="aviso">
+          Se sua escola não está na lista, envie as informações por e-mail para
+          <strong>estagio.ped.srq@ifsp.edu.br</strong> e verifique se as informações atualizadas constam nesta
+          <a href="https://docs.google.com/spreadsheets/d/1mGRbuW11LIgGfTqkCiM4br5P-ElNpyF_Ksmwmly_-_o/edit?gid=0#gid=0" target="_blank" rel="noopener">planilha das escolas parceiras</a>.
+        </div>
+        <p class="observacao">Preencha os dados da escola não cadastrada:</p>
+
+        <div class="campo">
+          <label for="inp-esc-nome">Nome da escola:</label>
+          <input type="text" id="inp-esc-nome">
+        </div>
+
+        <div class="linha">
+          <div class="campo">
+            <label for="inp-esc-cnpj">CNPJ:</label>
+            <input type="text" id="inp-esc-cnpj">
+          </div>
+          <div class="campo">
+            <label for="inp-esc-telefone">Telefone:</label>
+            <input type="text" id="inp-esc-telefone">
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="inp-esc-endereco">Endereço:</label>
+          <input type="text" id="inp-esc-endereco">
+        </div>
+
+        <div class="linha-3">
+          <div class="campo">
+            <label for="inp-esc-cep">CEP:</label>
+            <input type="text" id="inp-esc-cep">
+          </div>
+          <div class="campo">
+            <label for="inp-esc-bairro">Bairro:</label>
+            <input type="text" id="inp-esc-bairro">
+          </div>
+          <div class="campo">
+            <label for="inp-esc-cidade">Cidade:</label>
+            <input type="text" id="inp-esc-cidade">
+          </div>
+        </div>
+
+        <div class="linha">
+          <div class="campo">
+            <label for="inp-esc-estado">Estado:</label>
+            <input type="text" id="inp-esc-estado" value="SP" maxlength="2">
+          </div>
+          <div class="campo">
+            <label for="inp-esc-periodoEstagio">Período do estágio:</label>
+            <input type="text" id="inp-esc-periodoEstagio" placeholder="Ex.: matutino, das 7h30 às 11h50">
+          </div>
+        </div>
+
+        <div class="linha">
+          <div class="campo">
+            <label for="inp-esc-representanteLegal">Representante legal:</label>
+            <input type="text" id="inp-esc-representanteLegal">
+          </div>
+          <div class="campo">
+            <label for="inp-esc-cargoRepresentante">Cargo:</label>
+            <input type="text" id="inp-esc-cargoRepresentante" placeholder="Ex.: Diretor(a)">
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="inp-esc-emailEscola">E-mail da escola:</label>
+          <input type="email" id="inp-esc-emailEscola">
+        </div>
+
+        <h3 style="margin-top: 14px;">Supervisor(a):</h3>
+
+        <div class="linha">
+          <div class="campo">
+            <label for="inp-esc-supervisorNome">Nome do(a) supervisor(a):</label>
+            <input type="text" id="inp-esc-supervisorNome">
+          </div>
+          <div class="campo">
+            <label for="inp-esc-supervisorFuncao">Função:</label>
+            <input type="text" id="inp-esc-supervisorFuncao" placeholder="Ex.: Professora">
+          </div>
+        </div>
+
+        <div class="linha">
+          <div class="campo">
+            <label for="inp-esc-supervisorTelefone">Telefone:</label>
+            <input type="text" id="inp-esc-supervisorTelefone">
+          </div>
+          <div class="campo">
+            <label for="inp-esc-supervisorEmail">E-mail:</label>
+            <input type="email" id="inp-esc-supervisorEmail">
+          </div>
+        </div>
+      </div>
+
+      <h3>3. Período do estágio</h3>
+
+      <p class="observacao">Datas e turno em que o estágio será desenvolvido.</p>
+
+      <div class="linha">
+        <div class="campo">
+          <label for="inp-estagioInicio">Início do estágio:<span class="obrigatorio">*</span></label>
+          <input type="text" id="inp-estagioInicio" placeholder="DD/MM/AAAA" maxlength="10" inputmode="numeric">
+        </div>
+        <div class="campo">
+          <label for="inp-estagioFim">Término do estágio:<span class="obrigatorio">*</span></label>
+          <input type="text" id="inp-estagioFim" placeholder="DD/MM/AAAA" maxlength="10" inputmode="numeric">
+        </div>
+      </div>
+
+      <p class="observacao" id="aviso-data-estagio" style="display:none; color:#a00;"></p>
+
+      <div class="campo">
+        <span class="label-aside" style="display:block; font-size: 0.85rem; font-weight: 500; margin-bottom: 6px; color: #555;">Período de realização do estágio:<span class="obrigatorio">*</span></span>
+        <div class="periodo-grid" id="periodo-estagio-grid">
+          <label class="semestre-check"><input type="radio" name="periodoEstagio" value="Matutino"> Matutino</label>
+          <label class="semestre-check"><input type="radio" name="periodoEstagio" value="Vespertino"> Vespertino</label>
+          <label class="semestre-check"><input type="radio" name="periodoEstagio" value="Integral"> Integral</label>
+          <label class="semestre-check" id="opt-noturno"><input type="radio" name="periodoEstagio" value="Noturno"> Noturno</label>
+        </div>
+        <p class="observacao" id="aviso-noturno" style="display:none; color:#a00;">
+          Estudantes que cursam Pedagogia no período noturno não podem realizar estágio no período noturno.
+        </p>
+      </div>
+
+      <h3>4. Orientador(a) no IFSP</h3>
+
+      <div class="campo">
+        <label for="sel-orientador">Selecione o(a) orientador(a):<span class="obrigatorio">*</span></label>
+        <select id="sel-orientador"></select>
+      </div>
+
+      <!-- Bloco para orientador "manual" -->
+      <div id="bloco-orientador-livre" style="display:none; border: 1px dashed #ccc; padding: 12px; border-radius: 4px; margin-bottom: 12px;">
+        <p class="observacao">Preencha os dados do(a) orientador(a) não listado(a):</p>
+        <div class="linha">
+          <div class="campo">
+            <label for="inp-orient-nome">Nome do(a) orientador(a):</label>
+            <input type="text" id="inp-orient-nome">
+          </div>
+          <div class="campo">
+            <label for="inp-orient-email">E-mail:</label>
+            <input type="email" id="inp-orient-email">
+          </div>
+        </div>
+      </div>
+
+      <h3>5. Plano de Atividades (semestres)</h3>
+
+      <p class="observacao">Marque os semestres que serão contemplados pelo plano:<span class="obrigatorio">*</span></p>
+
+      <div class="semestres-grid" id="semestres-container"></div>
+
+      <div class="campo" style="margin-top: 12px;">
+        <label for="inp-cargaDiaria">Carga horária diária do estágio (máximo 6h, conforme Lei 11.788/2008):<span class="obrigatorio">*</span></label>
+        <input type="number" id="inp-cargaDiaria" min="1" max="6" step="1" placeholder="Ex.: 4">
+      </div>
+
+      <h3>6. Data do Termo</h3>
+
+      <div class="linha-3">
+        <div class="campo">
+          <label for="data-dia">Dia:</label>
+          <input type="text" id="data-dia" maxlength="2">
+        </div>
+        <div class="campo">
+          <label for="data-mes">Mês:</label>
+          <select id="data-mes">
+            <option value="janeiro">janeiro</option>
+            <option value="fevereiro">fevereiro</option>
+            <option value="março">março</option>
+            <option value="abril">abril</option>
+            <option value="maio">maio</option>
+            <option value="junho">junho</option>
+            <option value="julho">julho</option>
+            <option value="agosto">agosto</option>
+            <option value="setembro">setembro</option>
+            <option value="outubro">outubro</option>
+            <option value="novembro">novembro</option>
+            <option value="dezembro">dezembro</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="data-ano">Ano:</label>
+          <input type="text" id="data-ano" maxlength="4">
+        </div>
+      </div>
+
+      <div class="aviso">
+        Confira todos os dados antes de gerar o termo. Campos não preenchidos aparecerão como "[preencher]".
+      </div>
+
+      <div class="botoes">
+        <button class="btn btn-primario" id="btn-imprimir">Imprimir / Salvar como PDF</button>
+        <button class="btn btn-primario" id="btn-doc">Baixar como documento Word (.doc)</button>
+        <button class="btn btn-secundario" id="btn-limpar">Limpar formulário</button>
+      </div>
+    </section>
+
+    <!-- ================== PAINEL DIREITO: Pré-visualização ================== -->
+    <section class="preview-wrapper">
+      <div class="preview-header">
+        <h2>Pré-visualização do Termo</h2>
+        <span style="font-size: 0.8rem; color: #666;">Atualiza automaticamente</span>
+      </div>
+      <!-- Botões duplicados que aparecem apenas no mobile -->
+      <div class="botoes-rapidos">
+        <button class="btn btn-primario" id="btn-imprimir-rapido">Imprimir / PDF</button>
+        <button class="btn btn-primario" id="btn-doc-rapido">Baixar .doc</button>
+      </div>
+      <div class="preview-area" id="preview-area">
+        <p style="text-align: center; color: #888; padding: 40px;">Preencha os dados ao lado para gerar a pré-visualização.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal de validação de campos obrigatórios -->
+  <div class="modal-backdrop" id="modal-campos">
+    <div class="modal">
+      <h3>Faltam informações para gerar o termo</h3>
+      <p>Antes de prosseguir, preencha os seguintes campos:</p>
+      <ul id="modal-lista-campos"></ul>
+      <div class="modal-acoes">
+        <button class="btn btn-primario" id="btn-fechar-modal">Voltar e preencher</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="rodape-sistema">
+    <p>
+      Para dúvidas sobre o estágio, acesse o
+      <a href="https://moodle.srq.ifsp.edu.br/course/view.php?id=2851" target="_blank" rel="noopener">Moodle do curso</a>
+      e as orientações disponíveis no
+      <a href="https://srq.ifsp.edu.br/superiores/126-cursos/superiores/1899-licenciatura-em-pedagogia" target="_blank" rel="noopener">site da Licenciatura em Pedagogia</a>.
+    </p>
+    <p class="rodape-autoria">
+      Programa criado por Mary Grace Pereira Andrioli, pedagoga do campus São Roque, com apoio de IA generativa (Claude.ai).
+    </p>
+  </footer>
+
+  <script src="dados.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
