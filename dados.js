@@ -23,11 +23,11 @@ const INSTITUICAO = {
 // Dados da Apólice de Seguro (fixos por vigência)
 // =========================================================================
 const SEGURO = {
-  numero: "039482025000109930001246",
-  seguradora: "PIMENTA & NOGUEIRA CORRETORA DE SEGUROS LTDA",
-  cnpjSeguradora: "04.061.087/0001-68",
-  vigenciaInicio: "27/02/2026",
-  vigenciaFim: "27/02/2027",
+  numero: "82205770",
+  seguradora: "Mongeral Aegon Seguros e Previdência S.A",
+  cnpjSeguradora: "33.608.308/0001-73",
+  vigenciaInicio: "22/06/2026",
+  vigenciaFim: "21/06/2027",
   valorCobertura: "R$ 11.500,00"
 };
 
